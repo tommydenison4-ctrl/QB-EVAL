@@ -1,27 +1,29 @@
-QB INSTALL TRAINER v4
+QB INSTALL TRAINER V5
 
-Open index.html in current Chrome or Edge.
+WHAT CHANGED
+- Replaced unreliable browser SpeechRecognition with MediaRecorder.
+- Press the microphone once to record and again to stop.
+- Audio playback and download are available after every rep.
+- Automatic football-aware transcription is available through the included secure Vercel server function.
+- The OpenAI API key stays on the server and is never placed in index.html.
+- The quarterback can still type or correct the transcript before grading.
 
-V3 drill flow:
-1. Load or select an install.
-2. Enter QB Drill.
-3. The quarterback receives only the play call, matching game-day communication.
-4. Press the microphone and explain the entire play from memory.
-5. Grade the rep.
-6. Only after grading does the full installation image and structured answer key appear.
-7. Broad red review circles flag diagram regions associated with categories scored below 80.
+GITHUB PAGES
+GitHub Pages can host index.html and record/play audio over HTTPS.
+It cannot securely store an OpenAI API key or run api/transcribe.js. Automatic transcription will therefore require a separate server endpoint. Recording itself will still work.
 
-Important:
-The current circles are category-level overlays. Exact circles around a specific receiver, protection defender, route, or RPO key require coordinate mapping for each imported play. That editor is planned for the next stage.
+RECOMMENDED: VERCEL
+1. Upload this entire folder to a GitHub repository.
+2. Import that repository into Vercel.
+3. In Vercel Project Settings > Environment Variables, add OPENAI_API_KEY.
+4. Deploy.
+5. Open the Vercel HTTPS URL. The default endpoint /api/transcribe will work automatically.
 
-Microphone transcription is browser-dependent and works best in Chrome or Edge. Data is stored locally in the browser.
+SECURITY
+Never paste an OpenAI API key into index.html or commit it to GitHub.
 
-
-V4 STAFF EVALUATION
-- Quarterback name stored with every rep
-- Category averages for formation, motion/tags, routes/assignments, protection/run scheme, reads/decisions and situation
-- Weekly progress chart
-- Clickable play-by-play evaluation with every attempt, transcript and stored missed concepts
-- Staff summary of strengths, gaps, mastery rate and recommended emphasis
-- QB, date-range and mastery filters
-- Print-ready coaching report
+MICROPHONE TROUBLESHOOTING
+- Use HTTPS or localhost.
+- Allow microphone access in the browser address bar.
+- Close other apps that may exclusively control the microphone.
+- Press once to start and once to stop; do not double-click.
